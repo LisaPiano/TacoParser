@@ -17,14 +17,19 @@
             // If your array.Length is less than 3, something went wrong
             if (cells.Length < 3)
             {
+                logger.LogWarning("You have less than 3 items. We have imcomplete data.");
                 // Log that and return null
                 // Do not fail if one record parsing fails, return null
                 return null; // TODO Implement
             }
 
             // grab the latitude from your array at index 0
+
+            var latitude = double.Parse(cells[0]);
             // grab the longitude from your array at index 1
+            var longitude = double.Parse(cells[1]);
             // grab the name from your array at index 2
+            var name = cells[2];
 
             // Your going to need to parse your string as a `double`
             // which is similar to parsing a string as an `int`
