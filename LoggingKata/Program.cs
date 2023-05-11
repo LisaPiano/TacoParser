@@ -2,6 +2,7 @@
 using System.Linq;
 using System.IO;
 using GeoCoordinatePortable;
+using System.Runtime.ConstrainedExecution;
 
 namespace LoggingKata
 {
@@ -9,6 +10,7 @@ namespace LoggingKata
     {
         static readonly ILog logger = new TacoLogger();
         const string csvPath = "TacoBell-US-AL.csv";
+        const double MetersToMiles = 0.00062137;
 
         static void Main(string[] args)
         {
@@ -80,6 +82,7 @@ namespace LoggingKata
                 }
             }
             logger.LogInfo($"{tacoBell1.Name} and {tacoBell2.Name} are the two restaurants that are the farthest apart.");
+            logger.LogInfo($"The total distanct between the two Taco Bells is {Math.Round((distance) * MetersToMiles, 2)} miles.");
 
             // Create a new corA Coordinate with your locA's lat and long
 
